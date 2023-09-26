@@ -3,25 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 0, 0, 0;
+        --background-start-rgb: 255, 255, 255;
+        --background-end-rgb: 255, 255, 255;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.bg {
+    background: linear-gradient(360deg, #000c28 38.83%, rgba(0, 12, 40, 0) 61.84%);
+    background-image: url("/images/makerx-bg-blur.png");
+    /* background-color: #000c28; */
+    /* inset: 50px auto 0 50%; */
+    height: 90vh;
+    width: 100%;
+    object-fit: cover;
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.scrollStyle {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+.scrollStyle::-webkit-scrollbar {
+    display: none;
 }
