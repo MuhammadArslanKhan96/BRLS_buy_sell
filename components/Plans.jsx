@@ -153,19 +153,40 @@ export default function Plans() {
     const SubscriptionPlans = [
         {
             Type: "Starter",
-            Features: ["Features", "Features", "Features"],
+            Features: [
+                "2 bots to be created",
+                "1 bots running simultaneously",
+                "1 exchanges",
+                "10 ticker presets",
+                "Value of the base order up to 100",
+                "Total value traded up to 1000",
+            ],
             Amount: `${(planPrice?.basic / price).toFixed(2)}`,
             value: planPrice?.basic,
         },
         {
             Type: "Pro",
-            Features: ["Features", "Features", "Features", "Features"],
+            Features: [
+                "5 bots to be created",
+                "3 bots running simultaneously",
+                "3 exchanges",
+                "20 ticker presets",
+                "Value of the base order up to 250",
+                "Total value traded up to 5000",
+            ],
             Amount: `${(planPrice?.standard / price).toFixed(2)}`,
             value: planPrice?.standard,
         },
         {
             Type: "Premium",
-            Features: ["Features", "Features", "Features", "Features", "Features", "Features", "Features"],
+            Features: [
+                "10 bots to be created",
+                "6 bots running simultaneously",
+                "10 exchanges",
+                "100 ticker presets",
+                "Value of the base order up to 10000",
+                "Total value traded up to 1000000",
+            ],
             Amount: `${(planPrice?.premium / price).toFixed(2)}`,
             value: planPrice?.premium,
         },
