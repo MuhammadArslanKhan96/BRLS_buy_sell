@@ -13,23 +13,11 @@ export default function Admin() {
     const { user } = useContext(Context);
     const router = useRouter();
 
-    // const getPlan = async () => {
-    //     await getPlans().then((data) => console.log(data[0].id));
-    // };
-
     const [values, setValues] = useState({
         basic: "",
         standard: "",
         premium: "",
     });
-
-    const setPrice = async () => {
-        await addPlans({
-            basic: values.basic,
-            standard: values.standard,
-            premium: values.premium,
-        });
-    };
 
     const updatePrice = async () => {
         await updatePlans({
@@ -56,7 +44,6 @@ export default function Admin() {
 
     return (
         <>
-            {/* <section className="bg-gray-50 dark:bg-gray-900"> */}
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto bg min-h-screen scrollStyle">
                 <div className="flex justify-center mb-4">
                     <Image src={MakerxLogo} alt="" width={70} height={70} />
@@ -128,7 +115,6 @@ export default function Admin() {
                     </div>
                 </div>
             </div>
-            {/* </section> */}
         </>
     );
 }

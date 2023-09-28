@@ -36,7 +36,6 @@ export default function Signin() {
 
     return (
         <div>
-            {/* <section className="min-h-screen"> */}
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg min-h-screen scrollStyle">
                 <div className="flex justify-center mb-4">
                     <Image src={MakerxLogo} alt="" width={70} height={70} />
@@ -89,7 +88,6 @@ export default function Signin() {
                     </div>
                 </div>
             </div>
-            {/* </section> */}
         </div>
     );
 }
