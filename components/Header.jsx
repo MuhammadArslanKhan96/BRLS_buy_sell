@@ -22,15 +22,17 @@ export default function Header() {
     };
 
     return (
-        <div className="flex justify-between py-6 px-8 max-sm:px-4 max-sm:py-3 items-center border-b bg-[#000C28]">
-            <p className="font-bold text-xl text-[#FFFFFF]">MakerX Payment Gateway</p>
-            {wallet === "" ? (
-                <Button onClick={getWalletFunction} className="text-[#FFFFFF]">
-                    Connect Wallet
-                </Button>
-            ) : (
-                <Typography className="font-bold text-[#FFFFFF]">Connected</Typography>
-            )}
+        <div className="flex justify-between py-6 px-8 max-sm:px-4 max-sm:py-3 items-center border-b bg-[#000C28] h-[10vh]">
+            <div className="container mx-auto flex justify-between items-center">
+                <p className="font-bold text-xl text-[#FFFFFF] max-sm:text-sm">MakerX Payment Gateway</p>
+                {wallet === "" ? (
+                    <Button onClick={getWalletFunction} className="text-[#FFFFFF]">
+                        Connect Wallet
+                    </Button>
+                ) : (
+                    <Typography className="font-bold text-[#FFFFFF]">Connected</Typography>
+                )}
+            </div>
         </div>
     );
 }

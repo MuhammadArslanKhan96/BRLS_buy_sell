@@ -8,6 +8,7 @@ import { Slide, ToastContainer } from "react-toastify";
 export default function App({ Component, pageProps }) {
     const [wallet, setWallet] = useState("");
     const [web3, setWeb3] = useState("");
+    const [user, setUser] = useState();
 
     // const MAINNET_ID = 137;
     const MAINNET_ID = 80001;
@@ -30,7 +31,7 @@ export default function App({ Component, pageProps }) {
     }, []);
 
     return (
-        <Context.Provider value={{ wallet, setWallet }}>
+        <Context.Provider value={{ wallet, setWallet, user, setUser }}>
             <WEB3_Contract.Provider value={{ web3Obj: web3, contractAddress }}>
                 <ToastContainer transition={Slide} newestOnTop />
                 <Component {...pageProps} />
