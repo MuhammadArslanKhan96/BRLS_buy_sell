@@ -4,8 +4,6 @@ import { db } from "../../utils/firebase";
 
 export default async function updatePlans(id) {
     try {
-        console.log(id);
-        // await updateDoc(doc(db, "SubscriptionPlans", id));
         const planPrice = doc(db, "SubscriptionPlans", "admin");
         // await setDoc(planPrice, {
         //     // name: "Frank",
