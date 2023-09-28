@@ -152,13 +152,13 @@ export default function Plans() {
 
     const SubscriptionPlans = [
         {
-            Type: "Basic",
+            Type: "Starter",
             Features: ["Features", "Features", "Features"],
             Amount: `${(planPrice?.basic / price).toFixed(2)}`,
             value: planPrice?.basic,
         },
         {
-            Type: "Standard",
+            Type: "Pro",
             Features: ["Features", "Features", "Features", "Features"],
             Amount: `${(planPrice?.standard / price).toFixed(2)}`,
             value: planPrice?.standard,
