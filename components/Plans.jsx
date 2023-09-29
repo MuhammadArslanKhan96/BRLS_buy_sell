@@ -145,7 +145,10 @@ export default function Plans() {
     };
 
     if (wallet) {
-        balanceWeb3();
+        const timeout = setTimeout(function () {
+            balanceWeb3();
+            console.log("Hello from setTimeout", timeout);
+        }, 5000);
     }
 
     useEffect(() => {
