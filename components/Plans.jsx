@@ -19,7 +19,7 @@ export default function Plans() {
     const { web3Obj } = useContext(WEB3_Contract);
 
     const [tokenBalance, setTokenBalance] = useState();
-    const [tokenBal, setTokenBal] = useState("0");
+    const [tokenBal, setTokenBal] = useState();
     const [loadings, setLoadings] = useState(false);
     const [planPrice, setPlanPrice] = useState({});
 
@@ -217,7 +217,7 @@ export default function Plans() {
                             <p className="text-[20px] font-medium text-white">MakerX Balance</p>
                             <div className="flex items-center gap-x-2 mt-2">
                                 <Image src={MakerLogo} alt="" width={30} height={30} />
-                                <p className="text-[18px] font-normal flex text-white">{tokenBal}</p>
+                                <p className="text-[18px] font-normal flex text-white">{tokenBal ? tokenBal : "0"}</p>
                             </div>
                         </div>
                     )}
