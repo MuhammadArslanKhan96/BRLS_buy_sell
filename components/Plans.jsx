@@ -12,12 +12,14 @@ import getPlans from "@/pages/api/getPlans";
 import Image from "next/image";
 import MakerLogo from "@/public/images/tokenmakerx.png";
 import Maker3DLogo from "@/public/images/tokenmakerx3D.png";
+import Web3 from "web3";
 
 export default function Plans() {
     const { wallet } = useContext(Context);
     const { web3Obj } = useContext(WEB3_Contract);
 
     const [tokenBalance, setTokenBalance] = useState();
+    const [tokenBal, setTokenBal] = useState("0");
     const [loadings, setLoadings] = useState(false);
     const [planPrice, setPlanPrice] = useState({});
 
@@ -65,29 +67,31 @@ export default function Plans() {
         }
     };
 
-    // const getOwner = async () => {
-    //     try {
-    //         const { contract } = web3Obj;
-    //         const get_Owner = await contract.methods.name().call();
-    //         console.log(get_Owner);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
-    const balance = async () => {
+    const balanceWeb3 = async () => {
         try {
-            if (wallet) {
-                const signer = provider.getSigner();
-                const myContract = new ethers.Contract(web3Obj?.contract?._address, ABI, signer);
-                const balance = await myContract
-                    .balanceOf(wallet)
-                    .then((data) => setTokenBalance(formatEther(data._hex)));
-            }
-        } catch (err) {
-            console.log(err);
+            const { contract } = web3Obj;
+            const balance = await contract.methods.balanceOf(wallet).call();
+            const weitoeth = Web3.utils.fromWei(balance, "ether");
+            const num = Number(weitoeth).toFixed(2);
+            setTokenBal(num);
+        } catch (error) {
+            console.log(error);
         }
     };
+
+    // const balance = async () => {
+    //     try {
+    //         // if (wallet) {
+    //         const signer = provider.getSigner();
+    //         const myContract = new ethers.Contract(web3Obj?.contract?._address, ABI, signer);
+    //         const balance = await myContract
+    //             .balanceOf(receiverAddress)
+    //             .then((data) => setTokenBalance(Number(formatEther(data._hex))));
+    //         // }
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
     const transfer = async (e) => {
         try {
@@ -100,9 +104,9 @@ export default function Plans() {
                 const mul = e.target.value / price;
                 const weitoeth = ethers.utils.parseEther(mul.toString());
 
-                console.log(tokenBalance, ethers.utils.parseEther(mul.toString()));
+                console.log(tokenBal, ethers.utils.parseEther(mul.toString()));
 
-                if (tokenBalance >= weitoeth) {
+                if (tokenBal >= weitoeth) {
                     const transfer = await myContract
                         .transfer(receiverAddress, weitoeth, {
                             gasPrice: gasPrice,
@@ -141,7 +145,7 @@ export default function Plans() {
     };
 
     if (wallet) {
-        balance();
+        balanceWeb3();
     }
 
     useEffect(() => {
@@ -210,14 +214,12 @@ export default function Plans() {
                             <p className="text-[20px] font-medium text-white">MakerX Balance</p>
                             <div className="flex items-center gap-x-2 mt-2">
                                 <Image src={MakerLogo} alt="" width={30} height={30} />
-                                <p className="text-[18px] font-normal flex text-white">
-                                    {Number(tokenBalance).toFixed(2)}
-                                </p>
+                                <p className="text-[18px] font-normal flex text-white">{tokenBal}</p>
                             </div>
                         </div>
                     )}
                 </div>
-                <div className="flex gap-x-4 justify-center mt-4 max-sm:justify-start max-sm:overflow-x-scroll scrollStyle">
+                <div className="flex gap-x-4 justify-center mt-4 max-xl:justify-start overflow-x-scroll scrollStyle">
                     {SubscriptionPlans?.map((item, idx) => (
                         <div
                             className="border border-[#a5f1fc] hover:border-[#3FB7FF] min-w-[200px] px-4 py-2 pb-6 rounded-[20px] mt-4 mb-4 cursor-default bg-[radial-gradient(83.21%_186.29%_at_12.42%_13.72%,rgba(0,12,40,.9)0%,rgba(0,12,40,.2)99.99%)] shadow-2xl"
@@ -234,7 +236,7 @@ export default function Plans() {
                                     <hr />
                                     {item?.Features?.map((item, idx) => (
                                         <p className="flex items-center gap-x-2 mt-3 text-white" key={idx}>
-                                            <BsCheckCircle color="#00FF00" />
+                                            <BsCheckCircle color="#00FF00" size={20} className="min-w-[20px]" />
                                             {item}
                                         </p>
                                     ))}
