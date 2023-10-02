@@ -1,20 +1,20 @@
 "use client";
 
 // import { Card } from "flowbite-react";
-import { createWeb3Modal, useWeb3Modal } from "@web3modal/wagmi/react";
+// import { createWeb3Modal, useWeb3Modal } from "@web3modal/wagmi/react";
 import { useContext } from "react";
-
 import { RxCross2 } from "react-icons/rx";
 import { useAccount } from "wagmi";
 import { Context } from "./Context";
 import Metamask from "../public/images/MetaMask.png";
 import WalletonnectLogo from "../public/images/walletconnect.png";
 import Image from "next/image";
+import { useWeb3Modal } from "@web3modal/react";
 
 export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig, chains, projectId }) {
     const { setWallet } = useContext(Context);
 
-    createWeb3Modal({ wagmiConfig, projectId, chains });
+    // createWeb3Modal({ wagmiConfig, projectId, chains });
 
     const { address } = useAccount();
     const { open } = useWeb3Modal();
@@ -49,7 +49,7 @@ export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig
                                             setModel(false);
                                         }}
                                     >
-                                        <span className="ml-3 flex items-center gap-x-2 whitespace-nowrap">
+                                        <span className="ml-3 flex items-center text-white gap-x-2 whitespace-nowrap">
                                             <Image
                                                 src={Metamask}
                                                 alt=""
@@ -65,7 +65,7 @@ export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig
                                     </button>
                                     <div>
                                         <button
-                                            onClick={() => open({ view: "Connect" })}
+                                            onClick={() => open()}
                                             className="w-full group flex items-center rounded-lg bg-[#133B5480] p-3 text-base font-bold text-gray-900 hover:bg-gray-100 hover:shadow dark:text-white dark:hover:bg-gray-500"
                                         >
                                             <span className="ml-3 flex items-center gap-x-2 whitespace-nowrap">
@@ -76,7 +76,8 @@ export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig
                                                     height={30}
                                                     className="w-[30px] h-[30px]"
                                                 />
-                                                <w3m-button label="Wallet Connect" />
+                                                {/* <w3m-button label="Wallet Connect" /> */}
+                                                Wallet Connect
                                             </span>
                                         </button>
                                     </div>
