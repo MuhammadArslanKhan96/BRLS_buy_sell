@@ -44,12 +44,12 @@ export default function Header({ wagmiConfig, chains, projectId }) {
             alert("install metamask extension!!");
         }
     };
-    console.log(model);
+
     return (
         <div className="flex justify-between py-6 px-8 max-sm:px-4 max-sm:py-3 items-center border-b bg-[#000C28] h-[10vh]">
             <div className="container mx-auto flex justify-between items-center">
                 <p className="font-bold text-xl text-[#FFFFFF] max-sm:text-sm">CrypZ - Subscribe Using MakerX</p>
-                {wallet === "" ? (
+                {wallet === "" && wallet === "undefined" && wallet === null ? (
                     <Button onClick={() => setModel(!model)} className="text-[#FFFFFF]">
                         Connect Wallet
                     </Button>

@@ -1,7 +1,5 @@
 "use client";
 
-// import { Card } from "flowbite-react";
-// import { createWeb3Modal, useWeb3Modal } from "@web3modal/wagmi/react";
 import { useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useAccount } from "wagmi";
@@ -11,15 +9,11 @@ import WalletonnectLogo from "../public/images/walletconnect.png";
 import Image from "next/image";
 import { useWeb3Modal } from "@web3modal/react";
 
-export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig, chains, projectId }) {
+export default function WalletConnect({ setModel, getWalletFunction }) {
     const { setWallet } = useContext(Context);
-
-    // createWeb3Modal({ wagmiConfig, projectId, chains });
 
     const { address } = useAccount();
     const { open } = useWeb3Modal();
-    // if (isConnecting) return <div>Connecting…</div>;
-    // if (isDisconnected) return <div>Disconnected</div>;
 
     setWallet(address);
 
@@ -31,9 +25,7 @@ export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <div>
                                 <div className="flex justify-between mb-3">
-                                    <h5 className=" text-base font-semibold text-gray-900 dark:text-white lg:text-xl">
-                                        Connect wallet
-                                    </h5>
+                                    <h5 className=" text-base font-semibold text-white lg:text-xl">Connect wallet</h5>
                                     <button onClick={() => setModel(false)}>
                                         <RxCross2 color="#FFFFFF" />
                                     </button>
@@ -68,7 +60,7 @@ export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig
                                             onClick={() => open()}
                                             className="w-full group flex items-center rounded-lg bg-[#133B5480] p-3 text-base font-bold text-gray-900 hover:bg-gray-100 hover:shadow dark:text-white dark:hover:bg-gray-500"
                                         >
-                                            <span className="ml-3 flex items-center gap-x-2 whitespace-nowrap">
+                                            <span className="ml-3 flex items-center text-white gap-x-2 whitespace-nowrap">
                                                 <Image
                                                     src={WalletonnectLogo}
                                                     alt=""
@@ -76,7 +68,6 @@ export default function WalletConnect({ setModel, getWalletFunction, wagmiConfig
                                                     height={30}
                                                     className="w-[30px] h-[30px]"
                                                 />
-                                                {/* <w3m-button label="Wallet Connect" /> */}
                                                 Wallet Connect
                                             </span>
                                         </button>

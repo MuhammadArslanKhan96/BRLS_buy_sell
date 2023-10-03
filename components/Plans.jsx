@@ -122,8 +122,7 @@ export default function Plans() {
                         };
                         console.log(JSON.stringify(transfer, null, 4));
                         router.push({
-                            pathname: "https://www.google.com/",
-                            query: { success: "Sccessfully Subscribe" },
+                            pathname: router.query.redirect,
                         });
                     });
                 } else toast("Insuffient Funds");
@@ -147,7 +146,6 @@ export default function Plans() {
     if (wallet) {
         const timeout = setTimeout(function () {
             balanceWeb3();
-            console.log("Hello from setTimeout", timeout);
         }, 5000);
     }
 
@@ -156,6 +154,21 @@ export default function Plans() {
         plans();
         //eslint-disable-next-line
     }, []);
+
+    useEffect(() => {
+        if ("/") {
+            var id = new Date().getTime();
+            router.replace({
+                pathname: "/",
+                query: { redirect: "https://www.google.com/" },
+            });
+            console.log(router);
+        }
+        //eslint-disable-next-line
+    }, []);
+
+    const id = router.query.redirect;
+    console.log(id);
 
     const SubscriptionPlans = [
         {
