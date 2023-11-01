@@ -1,10 +1,10 @@
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
-import Plans from "@/components/Plans";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { polygon, polygonMumbai } from "wagmi/chains";
 import { EthereumClient, w3mConnectors, w3mProvider } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
+import Swap from "@/components/Swap";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +27,9 @@ export default function Home() {
     return (
         <>
             <WagmiConfig config={wagmiConfig}>
-                <Header wagmiConfig={wagmiConfig} chains={chains} projectId={projectId} />
+                <Header />
                 <div className="px-4 bg scrollStyle">
-                    <Plans />
+                    <Swap />
                 </div>
             </WagmiConfig>
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />

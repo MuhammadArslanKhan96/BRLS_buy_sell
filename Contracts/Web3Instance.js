@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import Web3 from "web3";
 
 const getUserWalletAddresses = async () => {
@@ -14,9 +15,10 @@ export const getWeb3Instance = async (networkId) => {
     } else if (window.web3) {
         web3Provider = window.web3.currentProvider;
     } else {
-        const publicEndpoint = "https://rpc-mumbai.maticvigil.com/";
-        // const publicEndpoint = "https://polygon-rpc.com/";
-        web3Provider = new Web3.providers.HttpProvider(publicEndpoint);
+        // const publicEndpoint = "https://rpc-mumbai.maticvigil.com/";
+        const publicEndpoint = "https://data-seed-prebsc-1-s3.binance.org:8545/";
+        // web3Provider = new Web3.providers.HttpProvider(publicEndpoint);
+        web3Provider = new ethers.providers.Web3Provider(publicEndpoint);
     }
 
     const web3 = new Web3(web3Provider);
@@ -44,8 +46,8 @@ export const getWeb3Instance = async (networkId) => {
                                         symbol: "MATIC",
                                         decimals: 18,
                                     },
-                                    // rpcUrls: ["https://polygon-rpc.com/"],
-                                    rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
+                                    rpcUrls: ["https://data-seed-prebsc-1-s3.binance.org:8545/"],
+                                    // rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
                                 },
                             ],
                         });

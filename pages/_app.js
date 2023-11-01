@@ -11,14 +11,15 @@ export default function App({ Component, pageProps }) {
     const [user, setUser] = useState();
 
     // const MAINNET_ID = 137;
-    const MAINNET_ID = 80001;
+    const MAINNET_ID = 97;
     // const contractAddress = "0x1ed02954d60ba14e26c230eec40cbac55fa3aeea";
     const contractAddress = "0x707Ef067146026e481558Ce2c2BC3A085Ce9304B";
+    const brls = "0xDAAd7c51C11FC25e04da222F3aaBA34fe9657611";
 
     const initContract = async (networkId = MAINNET_ID) => {
         try {
             const web3 = await getWeb3Instance(networkId);
-            const contract = new web3.eth.Contract(ABI, contractAddress, wallet);
+            const contract = new web3.eth.Contract(ABI, contractAddress, brls, wallet);
             setWeb3({ web3, contract });
         } catch (error) {
             console.log(error);
