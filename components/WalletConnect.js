@@ -35,13 +35,13 @@ export default function WalletConnect({ setModel, getWalletFunction }) {
                                 </p>
                                 <div className="my-4 space-y-3">
                                     <button
-                                        className="w-full group flex items-center justify-between rounded-lg bg-[#133B5480] p-3 text-base font-bold text-gray-900 hover:bg-gray-100 hover:shadow dark:text-white dark:hover:bg-gray-500"
+                                        className="w-full group flex items-center justify-between rounded-lg bg-[#133B5480] p-3 text-base font-bold text-white hover:bg-gray-100 hover:text-black hover:shadow dark:text-white dark:hover:bg-gray-500"
                                         onClick={() => {
                                             getWalletFunction();
                                             setModel(false);
                                         }}
                                     >
-                                        <span className="ml-3 flex items-center text-white gap-x-2 whitespace-nowrap">
+                                        <span className="ml-3 flex items-center gap-x-2 whitespace-nowrap">
                                             <Image
                                                 src={Metamask}
                                                 alt=""
@@ -58,9 +58,9 @@ export default function WalletConnect({ setModel, getWalletFunction }) {
                                     <div>
                                         <button
                                             onClick={() => open()}
-                                            className="w-full group flex items-center rounded-lg bg-[#133B5480] p-3 text-base font-bold text-gray-900 hover:bg-gray-100 hover:shadow dark:text-white dark:hover:bg-gray-500"
+                                            className="w-full group flex items-center rounded-lg bg-[#133B5480] p-3 text-base font-bold text-white hover:text-black hover:bg-gray-100 hover:shadow dark:text-white dark:hover:bg-gray-500"
                                         >
-                                            <span className="ml-3 flex items-center text-white gap-x-2 whitespace-nowrap">
+                                            <span className="ml-3 flex items-center gap-x-2 whitespace-nowrap">
                                                 <Image
                                                     src={WalletonnectLogo}
                                                     alt=""

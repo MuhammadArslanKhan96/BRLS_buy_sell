@@ -307,7 +307,7 @@ export default function Swap() {
       <div className="flex justify-center mt-4">
         <div className="bg-[linear-gradient(180deg,#201f2b,rgba(32,31,43,.3))] rounded-[10px] p-[32px] max-w-[500px]">
           <p className="flex justify-center text-[24px] font-semibold text-white">
-            {keys === "1" ? "Buy" : "Sell"} BRLS
+            {keys === "1" ? "Buy" : "Sell"} VUSD
           </p>
           <div className="w-full [&>div>div>div>div>div]:!text-white">
             <Tabs
@@ -349,7 +349,7 @@ export default function Swap() {
                 <div className="mt-4">
                   <div className="flex justify-between items-center">
                     <p className="text-[24px] font-semibold text-white">
-                      BRLSStable
+                      VUSD
                     </p>
                   </div>
                   <div className="flex items-center rounded-[12px] bg-[#403a52] border border-[#3e5060] p-2 focus:ring-[#8356e8] focus:border-[#8356e8]">
@@ -380,7 +380,7 @@ export default function Swap() {
                 <div className="mt-4">
                   <div className="flex justify-between items-center">
                     <p className="text-[24px] font-semibold text-white">
-                      BRLSStable
+                      VUSD
                     </p>
                   </div>
                   <div className="flex items-center rounded-[12px] bg-[#403a52] border border-[#3e5060] p-2 focus:ring-[#8356e8] focus:border-[#8356e8]">
